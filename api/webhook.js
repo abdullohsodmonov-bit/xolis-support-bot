@@ -17,7 +17,7 @@ bot.on('message', async (ctx) => {
         { role: 'system', content: systemPrompt },
         { role: 'user', content: ctx.message.text || '' }
       ],
-      model: 'llama-3.1-8b-instant',
+      model: 'openai/gpt-oss-20b',
       temperature: 0.7,
       max_tokens: 250
     });
@@ -26,7 +26,7 @@ bot.on('message', async (ctx) => {
     else throw new Error('Empty response');
   } catch (err) {
     console.error('Groq error:', err);
-    await ctx.reply('Извините, возникла ошибка. Попробуйте позже или напишите @xolisarenda_support.');
+    await ctx.reply('Извините, возникла ошибка. Попробуйте позже.');
   }
 });
 
